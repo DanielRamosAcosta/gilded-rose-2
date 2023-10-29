@@ -1,6 +1,6 @@
 # TypeScript Kata Setup
 
-Change
+Other change test
 
 Includes:
 
