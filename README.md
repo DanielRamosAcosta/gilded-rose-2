@@ -1,20 +1,50 @@
-# TypeScript Kata Setup
+# Gilded Rose Kata
 
-Other change test
+## How to use this repo
 
-Includes:
+In this repo are several branches that you can find:
 
-- ✅ JUnit
-- 🕵️ Mockito
+- Testing
+  - [`tests/regular`]: Uses regular tests, from a business point of view
+  - [`tests/characterization`]: Uses Characterization tests (AKA Golden Master Tests or Approval Tests)
+- Solving
+  - [`refactor/common-end`]: Contains the common part of the refactor for the other two possible ways I took
+  - [`refactor/regular-end`]: This branch has been refactored in small steps which would be much more easy to understand
+  - [`refactor/aggresive-end`]: This branch has a much more aggresive solving, via popping out the big if statement
 
-## Setup
+## Specification
 
-1. [Create a new repository](https://github.com/new?template_name=kata-setup-typescript&template_owner=AgileCraftsmanshipCanarias) from this template
-2. Clone it and open with IntelliJ
-3. Configure SDK
-   1. File > Project Structure.
-   2. Set "SDK" 17
-   3. Set Language Level "SDK Default"
-4. Configure Gradle
-   1. Settings > Build, Execution, Deployment > Build Tools > Gradle
-   2. Set Gradle JVM to 17
+Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a
+prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods.
+Unfortunately, our goods are constantly degrading in quality as they approach their sell by date. We
+have a system in place that updates our inventory for us. It was developed by a no-nonsense type named
+Leeroy, who has moved on to new adventures. Your task is to add the new feature to our system so that
+we can begin selling a new category of items. First an introduction to our system:
+
+    - All items have a SellIn value which denotes the number of days we have to sell the item
+    - All items have a Quality value which denotes how valuable the item is
+    - At the end of each day our system lowers both values for every item
+
+Pretty simple, right? Well this is where it gets interesting:
+
+    - Once the sell by date has passed, Quality degrades twice as fast
+    - The Quality of an item is never negative
+    - "Aged Brie" actually increases in Quality the older it gets
+    - The Quality of an item is never more than 50
+    - "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
+    - "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
+    Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
+    Quality drops to 0 after the concert
+
+We have recently signed a supplier of conjured items. This requires an update to our system:
+
+    - "Conjured" items degrade in Quality twice as fast as normal items
+
+Feel free to make any changes to the UpdateQuality method and add any new code as long as everything
+still works correctly. However, do not alter the Item class or Items property as those belong to the
+goblin in the corner who will insta-rage and one-shot you as he doesn't believe in shared code
+ownership (you can make the UpdateQuality method and Items property static if you like, we'll cover
+for you).
+
+Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a
+legendary item and as such its Quality is 80 and it never alters.
